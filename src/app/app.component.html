@@ -1,0 +1,76 @@
+<mat-progress-bar
+  mode="indeterminate"
+  color="accent"
+  *ngIf="loading"
+></mat-progress-bar>
+
+<div class="container mt-4">
+  <div class="mt-3 mb-3" style="text-align: center">
+    <img
+      src="https://codingbirdsonline.com/wp-content/uploads/2020/01/cropped-coding-birds-online-favicon-180x180.png"
+      width="50"
+    />
+  </div>
+  <div class="card example-card" style="width: 50rem">
+    <div class="card-body">
+      <h5 class="card-title text-center m-2">Country, State & City Dropdown</h5>
+      <form [formGroup]="dropdownForm">
+        <div class="d-flex justify-content-center mt-4">
+          <div class="p-2">
+            <mat-form-field appearance="outline">
+              <mat-label>Country</mat-label>
+              <mat-select
+                disableRipple
+                formControlName="country"
+                (valueChange)="selectCountry($event)"
+              >
+                <mat-option value="">Select</mat-option>
+                <mat-option
+                  *ngFor="let country of countries"
+                  [value]="country.id"
+                  [attr.data-country-name]="country.name"
+                  >{{ country.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="p-2">
+            <mat-form-field appearance="outline">
+              <mat-label>State</mat-label>
+              <mat-select
+                disableRipple
+                formControlName="state"
+                (valueChange)="selectState($event)"
+              >
+                <mat-option value="">Select</mat-option>
+                <mat-option
+                  *ngFor="let state of states"
+                  [value]="state.id"
+                  [attr.data-state-name]="state.name"
+                  >{{ state.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="p-2">
+            <mat-form-field appearance="outline">
+              <mat-label>City</mat-label>
+              <mat-select disableRipple formControlName="city">
+                <mat-option value="">Select</mat-option>
+                <mat-option
+                  *ngFor="let city of cities"
+                  [value]="city.id"
+                  [attr.data-city-name]="city.name"
+                  >{{ city.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <p *ngIf="dropdownForm.value.country">
+          {{ dropdownForm.value | json }}
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
