@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-server": "ng build --base-href ../country-state-city-dropdown-in-angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

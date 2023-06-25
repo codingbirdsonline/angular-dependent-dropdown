@@ -8,12 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 
 const materialModules = [
   MatInputModule,
-  MatInputModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
-
   MatSelectModule,
-
   MatFormFieldModule,
 ];
 @NgModule({
